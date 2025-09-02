@@ -725,6 +725,7 @@
             });
         });
 
+
         // Dynamic header shadow
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -749,13 +750,17 @@
             console.log("[WARNING]: Do not paste code here you don't understand, it could make Attackers steal your identity with a 'Self-XSS-Attack'");
         });
 
-        // Video autoplay
-        window.addEventListener('load', () => {
+        function playBgVid() {
             video = document.getElementById('v');
             video.play();
             video.muted = true;
             video.loop = true;
             video.autoplay = true;
+        }
+
+        // Video autoplay
+        window.addEventListener('load', () => {
+            playBgVid();
         })
     </script>
 </body>
