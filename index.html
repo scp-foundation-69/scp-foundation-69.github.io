@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="imgs/scp-pfp-bg-removed.png" type="image/png">
+    <link rel="icon" href="assets/scp-pfp-bg-removed.png" type="image/png">
     <title>SCP Foundation</title>
     <style>
         :root {
@@ -445,6 +445,44 @@
                 gap: 0.5rem;
             }
         }
+
+        /* New gradient for name-main (blue) */
+        #name-main {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(
+                270deg,
+                #00c6ff,  /* cyan blue */
+                #0072ff,  /* vivid blue */
+                #6a11cb,  /* deep indigo */
+                #00c6ff   /* loop back to cyan */
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            cursor: default;
+            transition: transform 0.3s ease;
+        }
+
+        /* Shimmer effect */
+        #name-main:hover {
+            animation: shine 10s ease infinite;
+            transform: scale(1.05);
+        }
+
+        @keyframes shine {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -453,7 +491,7 @@
 <body>
     <div class="video-background">
         <video autoplay loop muted playsinline webkit-playsinline id="v">
-            <source src="imgs/anim-bg.mp4" type="video/mp4">
+            <source src="assets/anim-bg.mp4" type="video/mp4">
         </video>
         <script>
             document.getElementById('v').play();
@@ -473,9 +511,9 @@
 
     <div class="container">
         <section class="hero" id="home">
-            <img src="imgs/scp-pfp.png" alt="Profile Picture" class="profile-img">
+            <img src="assets/scp-pfp.png" alt="Profile Picture" class="profile-img">
             <div class="bio">
-                <h1>SCP Foundation</h1>
+                <h1 id="name-main">SCP Foundation</h1>
                 <div class="social-links" id="dc">
                     <a href="https://discord.com/users/1144290929201647710" class="social-link" target="_blank">
                         <i class='bx bxl-discord-alt'></i>
@@ -706,7 +744,8 @@
     </div>
 
     <footer id="footer">
-        <p>&copy; SCP Foundation 2025 - all rights reserved | <a href="#home">Back to top</a></p>	
+        <p>&copy; SCP Foundation 2025 - all rights reserved | <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Go to Top</a>
+</p>	
     </footer>
 
     <script>
